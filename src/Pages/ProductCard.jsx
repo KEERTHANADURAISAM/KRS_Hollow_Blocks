@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 
 const products = [
   { name: "Hollow Blocks", image: "/block-removebg-preview.png" },
-  { name: "Molded Rings", image: "/ring.avif" },
-  { name: "Molded Pillars", image: "/pillar.avif" },
+  { name: "Molded Rings", image: "/mold_rings-removebg-preview.png" },
+  { name: "Molded Pillars", image: "/pngtree-white-roman-pillar-building-png-image_13539431.png" },
   { name: "Paver Blocks", image: "/paver-removebg-preview.png" },
 ];
 
