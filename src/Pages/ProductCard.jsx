@@ -1,35 +1,75 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const products = [
-  { name: "Hollow Blocks", image: "/hollow-blocks.jpg" },
-  { name: "Molded Rings", image: "/molled-ring-pillar.jpg" },
-  { name: "Molded Pillars", image: "/molled-ring-pillar.jpg" },
-  { name: "Paver Blocks", image: "/paver-blocks.jpg" },
+  { name: "Hollow Blocks", image: "/block-removebg-preview.png" },
+  { name: "Molded Rings", image: "/ring.avif" },
+  { name: "Molded Pillars", image: "/pillar.avif" },
+  { name: "Paver Blocks", image: "/paver-removebg-preview.png" },
 ];
 
 const ProductCard = () => {
   return (
-    <div style={{ display: "flex", justifyContent: "center", gap: "20px", padding: "20px" }}>
-      {products.map((product, index) => (
-        <div
-          key={index}
-          style={{
-            backgroundColor: "#f5f5f5",
-            padding: "20px",
-            borderRadius: "10px",
-            textAlign: "center",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
-            width: "200px",
-          }}
-        >
-          <img
-            src={product.image}
-            alt={product.name}
-            style={{ width: "100%", height: "150px", borderRadius: "10px", objectFit: "cover" }}
-          />
-          <h3 style={{ marginTop: "10px", fontSize: "18px" }}>{product.name}</h3>
-        </div>
-      ))}
+    <div
+      style={{
+        textAlign: "center",
+        padding: "50px 20px",
+        backgroundColor: "#0D0D1F",
+      }}
+    >
+      <h2 style={{ color: "wheat", marginBottom: "30px", fontSize: "2rem" }}>
+        Our Products
+      </h2>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "25px",
+          justifyContent: "center",
+          padding: "10px",
+          maxWidth: "1100px",
+          margin: "auto",
+        }}
+      >
+        {products.map((product, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.07 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              backgroundColor: "#1A1A2E",
+              padding: "20px",
+              borderRadius: "15px",
+              textAlign: "center",
+              boxShadow: "0px 6px 12px rgba(255, 255, 255, 0.2)",
+              maxWidth: "320px",
+              width: "100%",
+              margin: "auto",
+            }}
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              style={{
+                width: "100%",
+                height: "200px",
+                borderRadius: "10px",
+                objectFit: "cover",
+              }}
+            />
+            <h3
+              style={{
+                marginTop: "12px",
+                fontSize: "1.2rem",
+                color: "wheat",
+              }}
+            >
+              {product.name}
+            </h3>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 };

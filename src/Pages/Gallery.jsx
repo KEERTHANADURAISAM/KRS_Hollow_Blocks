@@ -34,22 +34,29 @@ const Gallery = () => {
       >
         <Typography
           variant="h4"
-          sx={{ color: "black", mb: 3, fontWeight: "bold", textAlign: "center" }}
+          sx={{
+            color: "black",
+            mb: 4,
+            fontWeight: "bold",
+            textAlign: "center",
+            fontSize: { xs: "1.8rem", sm: "2.2rem" },
+          }}
         >
           Our Gallery
         </Typography>
       </motion.div>
 
-      {/* 3x3 Grid Layout with slightly increased image size */}
+      {/* Responsive Grid Layout */}
       <Box
         sx={{
           display: "grid",
           gridTemplateColumns: {
-            xs: "repeat(2, 1fr)", // 2 columns on small screens
-            sm: "repeat(3, 1fr)", // 3 columns on medium & large screens
+            xs: "repeat(1, 1fr)", // 🔹 Single column on mobile
+            sm: "repeat(2, 1fr)", // 🔹 Two columns on small screens
+            md: "repeat(3, 1fr)", // 🔹 Three columns on medium & larger screens
           },
           gap: 3,
-          maxWidth: "1100px", // Increased max width
+          maxWidth: "1100px",
           width: "100%",
           px: 2,
         }}
@@ -57,10 +64,10 @@ const Gallery = () => {
         {images.map((src, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ scale: 1.07 }} // Increased hover effect slightly
+            whileHover={{ scale: 1.05 }} // Smooth hover effect
           >
             <Box
               component="img"
@@ -69,11 +76,12 @@ const Gallery = () => {
               sx={{
                 width: "100%",
                 height: "auto",
-                aspectRatio: "16/10", // Slightly wider aspect ratio
+                aspectRatio: "4/3", // Balanced image ratio
                 objectFit: "cover",
-                borderRadius: "8px",
-                boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.2)", // Enhanced shadow
+                borderRadius: "10px",
+                boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.2)",
                 cursor: "pointer",
+                transition: "transform 0.3s ease-in-out",
               }}
             />
           </motion.div>

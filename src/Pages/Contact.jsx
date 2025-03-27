@@ -6,14 +6,14 @@ const Contact = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#0D0D1F",
+        backgroundColor: "white",
         color: "#fff",
         minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        py: 5,
-        px: 2,
+        py: 6,
+        px: 3,
       }}
     >
       <Box
@@ -21,7 +21,7 @@ const Contact = () => {
           display: "grid",
           gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
           gap: 4,
-          maxWidth: "1100px", // Reduced width for better layout
+          maxWidth: "1000px",
           width: "100%",
         }}
       >
@@ -29,19 +29,20 @@ const Contact = () => {
         <Box
           sx={{
             backgroundColor: "#1C1C3A",
-            padding: 3,
+            padding: 4,
             borderRadius: "10px",
             textAlign: "center",
+            color: "white",
           }}
         >
           <Typography variant="h5" sx={{ mb: 2, fontWeight: "bold" }}>
             📍 Our Location
           </Typography>
-          <Typography variant="body1" sx={{ mb: 2 }}>
-            KRS Hollow Blocks,Chathrapatti,Pudhukottai
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            KRS Hollow Blocks, Chathrapatti, Pudhukottai
           </Typography>
           <Typography variant="body1" sx={{ mb: 2 }}>
-            97900 86894 - 99437 17808
+            📞 97900 86894 - 99437 17808
           </Typography>
           <iframe
             title="Google Map"
@@ -49,7 +50,7 @@ const Contact = () => {
             height="230"
             frameBorder="0"
             style={{ borderRadius: "10px" }}
-            src="https://www.google.com/maps/embed/v1/place?q=New+York&key=YOUR_GOOGLE_MAPS_API_KEY"
+            src="https://www.google.com/maps/embed/v1/place?q=KRS+Hollow+Blocks,Chathrapatti,Pudhukottai&key=YOUR_GOOGLE_MAPS_API_KEY"
             allowFullScreen
           ></iframe>
         </Box>
@@ -58,9 +59,10 @@ const Contact = () => {
         <Box
           sx={{
             backgroundColor: "#1C1C3A",
-            padding: 3,
+            padding: 4,
             borderRadius: "10px",
             textAlign: "center",
+            color: "white",
           }}
         >
           <Typography variant="h5" sx={{ mb: 2, fontWeight: "bold" }}>
@@ -78,7 +80,7 @@ const Contact = () => {
                 borderBottom: "2px solid white",
               },
             }}
-            sx={{ mb: 2 }}
+            sx={{ mb: 3 }}
           />
 
           <TextField
@@ -92,7 +94,7 @@ const Contact = () => {
                 borderBottom: "2px solid white",
               },
             }}
-            sx={{ mb: 2 }}
+            sx={{ mb: 3 }}
           />
 
           <TextField
@@ -108,7 +110,7 @@ const Contact = () => {
                 borderBottom: "2px solid white",
               },
             }}
-            sx={{ mb: 2 }}
+            sx={{ mb: 3 }}
           />
 
           <Button
@@ -116,13 +118,12 @@ const Contact = () => {
             sx={{
               backgroundColor: "wheat",
               color: "black",
-              mt: 2,
               fontWeight: "bold",
               transition: "0.3s ease-in-out",
               "&:hover": {
                 backgroundColor: "#1C1C3A",
                 color: "white",
-                letterSpacing: 2,
+                letterSpacing: "2px",
               },
             }}
             endIcon={<Send />}
