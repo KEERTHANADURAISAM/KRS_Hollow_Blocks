@@ -14,9 +14,10 @@ import {
   MenuItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom"; // Import Link for routing
 
 const navItems = ["Home", "About", "Products", "Gallery", "Testimonials", "Contact"];
-const products = ["Block 1", "Block 2", "Block 3", "Block 4"];
+const products = ["Hollow Blocks", "Molded Rings", "Molded Pillars", "Paver Blocks"];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -25,6 +26,7 @@ const Navbar = () => {
   const handleProductsClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -38,7 +40,7 @@ const Navbar = () => {
           sx={{
             color: "#fff",
             fontWeight: "bold",
-            fontFamily: "'Playfair Display', serif", // Unique font
+            fontFamily: "'Playfair Display', serif",
             fontSize: "1.8rem",
             letterSpacing: "2px",
           }}
@@ -47,7 +49,7 @@ const Navbar = () => {
         </Typography>
 
         {/* Desktop Navigation */}
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 ,fontFamily:'Montserrat, sans-serif'}}>
+        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3, fontFamily: "Montserrat, sans-serif" }}>
           {navItems.map((item) => (
             item === "Products" ? (
               <Button
@@ -58,7 +60,12 @@ const Navbar = () => {
                 {item}
               </Button>
             ) : (
-              <Button key={item} sx={{ color: "#ffffff", fontSize: "1rem", textTransform: "none" }}>
+              <Button
+                key={item}
+                component={Link}
+                to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                sx={{ color: "#ffffff", fontSize: "1rem", textTransform: "none" }}
+              >
                 {item}
               </Button>
             )
@@ -68,7 +75,9 @@ const Navbar = () => {
         {/* Products Dropdown */}
         <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
           {products.map((product) => (
-            <MenuItem key={product} onClick={handleClose}>{product}</MenuItem>
+            <MenuItem key={product} component={Link} to={`/products/${product.toLowerCase().replace(/\s+/g, "-")}`} onClick={handleClose}>
+              {product}
+            </MenuItem>
           ))}
         </Menu>
 
@@ -83,7 +92,9 @@ const Navbar = () => {
         <List sx={{ width: 200 }}>
           {navItems.map((item) => (
             <ListItem key={item} disablePadding>
-              <ListItemButton onClick={() => setOpen(false)}>{item}</ListItemButton>
+              <ListItemButton component={Link} to={item === "Home" ? "/" : `/${item.toLowerCase()}`} onClick={() => setOpen(false)}>
+                {item}
+              </ListItemButton>
             </ListItem>
           ))}
         </List>

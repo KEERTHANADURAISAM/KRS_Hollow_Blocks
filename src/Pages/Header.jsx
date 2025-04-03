@@ -1,5 +1,17 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
+import { motion } from "framer-motion";
+
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const buttonVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.2 } },
+  hover: { scale: 1.05, transition: { duration: 0.3 } },
+};
 
 const Header = () => {
   return (
@@ -43,31 +55,42 @@ const Header = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          backgroundColor: "rgba(0, 0, 0, 0.8)",
         }}
       />
 
       {/* Text Content */}
       <Box
-        sx={{
-          position: "relative",
-          zIndex: 2,
-          color: "#fff",
-          maxWidth: { xs: "90%", sm: "80%", md: "600px" }, // More width on mobile
-          textAlign: "center",
-          px: { xs: 3, sm: 5 }, // More padding on small screens
-        }}
-      >
+      sx={{
+        position: "relative",
+        zIndex: 2,
+        color: "#fff",
+        maxWidth: { xs: "90%", sm: "80%", md: "600px" },
+        textAlign: "center",
+        px: { xs: 3, sm: 5 },
+      }}
+      component={motion.div}
+      initial="hidden"
+      animate="visible"
+      variants={{
+        visible: { transition: { staggerChildren: 0.2 } },
+      }}
+    >
+      {/* Title */}
+      <motion.div variants={textVariants}>
         <Typography
           variant="h3"
           fontWeight="bold"
           sx={{
-            fontSize: { xs: "2.2rem", sm: "2.7rem", md: "3.2rem" }, // Bigger text
+            fontSize: { xs: "2.2rem", sm: "2.7rem", md: "3.2rem" },
           }}
         >
           High-Quality Hollow Blocks
         </Typography>
+      </motion.div>
 
+      {/* Subheading */}
+      <motion.div variants={textVariants}>
         <Typography
           variant="h6"
           mt={2}
@@ -77,28 +100,34 @@ const Header = () => {
         >
           Durable | Reliable | Sustainable
         </Typography>
+      </motion.div>
 
+      {/* Description */}
+      <motion.div variants={textVariants}>
         <Typography
           variant="body1"
           mt={2}
           maxWidth="600px"
           mx="auto"
           sx={{
-            fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.3rem" }, // Bigger on mobile
-            textAlign: "center", // Properly aligned
-            lineHeight: "1.6", // Better spacing
+            fontSize: { xs: "1.1rem", sm: "1.2rem", md: "1.3rem" },
+            textAlign: "center",
+            lineHeight: "1.6",
           }}
         >
           Crafted with precision and high-grade materials, our hollow blocks
           ensure strength and longevity for all construction needs.
         </Typography>
+      </motion.div>
 
+      {/* Button */}
+      <motion.div variants={buttonVariants} whileHover="hover">
         <Button
           sx={{
             backgroundColor: "#0D0D1F",
-            mt: 3, // More spacing above button
+            mt: 3,
             px: 3,
-            py: 1.5, // Bigger button
+            py: 1.5,
             color: "white",
             letterSpacing: 2,
             transition: "0.3s",
@@ -111,7 +140,8 @@ const Header = () => {
         >
           Explore Products
         </Button>
-      </Box>
+      </motion.div>
+    </Box>
     </Box>
   );
 };
