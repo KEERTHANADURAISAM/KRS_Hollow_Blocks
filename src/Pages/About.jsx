@@ -14,7 +14,7 @@ const About = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#0D0D1F",
+          backgroundColor: "white",
           px: { xs: 3, sm: 5, md: 8 },
           py: { xs: 4, sm: 6, md: 8 },
         }}
@@ -39,11 +39,11 @@ const About = () => {
             style={{ flex: 1, textAlign: "center" }}
           >
             <Typography
-              variant="h3"
+              variant="h1"
               fontWeight="bold"
               sx={{
-                fontSize: { xs: "1.8rem", sm: "2.5rem", md: "3rem" },
-                color: "wheat",
+                fontSize: { xs: "1.8rem", sm: "2.5rem", md: "4rem" },
+                color: "#6278FE",
                 textAlign: { xs: "center", md: "left" },
               }}
             >
@@ -56,7 +56,7 @@ const About = () => {
               sx={{
                 fontSize: { xs: "1rem", sm: "1.2rem" },
                 lineHeight: "1.6",
-                color: "#ddd",
+                color: "black",
                 textAlign: { xs: "center", md: "left" },
                 maxWidth: "600px",
               }}
