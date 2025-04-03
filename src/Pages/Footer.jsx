@@ -1,79 +1,70 @@
 import React from "react";
-import { Container, Grid, Typography, Box, Link } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { Box, Typography, Link } from "@mui/material";
+import { Facebook, Twitter, YouTube, LinkedIn } from "@mui/icons-material";
+import { NavLink } from "react-router-dom";
+
+const navItems = ["Home", "About", "Products", "Gallery", "Testimonials", "Contact"];
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: "#0D0D1F", color: "white", py: 2, borderTop: "1px solid #ddd" }}>
-      <Container maxWidth="lg">
-        <Grid container spacing={3} justifyContent="space-between" alignItems="center">
-          {/* Brand Name */}
-          <Grid item xs={12} sm={4}>
-            <Typography
-              variant="h6"
-              sx={{ fontFamily: "'Playfair Display', serif", fontWeight: "bold", fontSize: "1.5rem" }}
-            >
-              KRS Hollow Blocks
-            </Typography>
-          </Grid>
+    <Box sx={{ backgroundColor: "#0D0D1F", py: 2, borderTop: "1px solid #ddd",color:"white" }}>
+      {/* Logo */}
+      <Box textAlign="center" mb={1}>
+        <Typography variant="h6" sx={{ fontWeight: "bold", fontSize: "1.4rem", fontFamily: "Playfair Display, serif" }}>
+          KRS Hollow Blocks
+        </Typography>
+      </Box>
 
-          {/* Quick Links */}
-          <Grid item xs={12} sm={4} sx={{ textAlign: "center" }}>
-            <Typography variant="body1" sx={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
-              Quick Links
-            </Typography>
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 1 }}>
-              {["Home", "About", "Products", "Contact"].map((text) => (
-                <Link
-                  key={text}
-                  component={RouterLink}
-                  to={text === "Home" ? "/" : `/${text.toLowerCase()}`}
-                  color="inherit"
-                  underline="none"
-                  sx={{
-                    fontSize: "0.9rem",
-                    position: "relative",
-                    "&::after": {
-                      content: '""',
-                      display: "block",
-                      width: "50%",
-                      height: "2px",
-                      backgroundColor: "#333",
-                      position: "absolute",
-                      bottom: "-3px",
-                      left: "50%",
-                      transform: "translateX(-50%) scaleX(0)",
-                      transition: "transform 0.3s ease-in-out",
-                    },
-                    "&:hover::after": {
-                      transform: "translateX(-50%) scaleX(1)",
-                    },
-                  }}
-                >
-                  {text}
-                </Link>
-              ))}
-            </Box>
-          </Grid>
+      {/* Navigation Links */}
+      <Box display="flex" justifyContent="center" gap={3}>
+        {navItems.map((item) => (
+          <NavLink
+            key={item}
+            to={`/${item.toLowerCase()}`}
+            style={{
+              textDecoration: "none",
+              color: "black",
+              fontSize: "1rem",
+              fontFamily: "Montserrat, sans-serif",
+              position: "relative",
+              color:"white"
+            }}
+          >
+            {item}
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: -2,
+                left: "25%",
+                width: "50%",
+                height: "2px",
+                backgroundColor: "black",
+                transition: "0.3s",
+                transform: "scaleX(0)",
+              }}
+              className="hover-line"
+            ></Box>
+          </NavLink>
+        ))}
+      </Box>
 
-          {/* Contact Info */}
-          <Grid item xs={12} sm={4} sx={{ textAlign: "right" }}>
-            <Typography variant="body2" sx={{ fontFamily: "Montserrat, sans-serif" }}>
-              📞 97900 86894 | 99437 17808
-            </Typography>
-            <Typography variant="body2" sx={{ fontFamily: "Montserrat, sans-serif" }}>
-              ✉️ info@krshollowblocks.com
-            </Typography>
-          </Grid>
-        </Grid>
+      {/* Thin Separator */}
+      <Box mt={2} mb={1} textAlign="center">
+        <hr style={{ width: "80%", margin: "auto", border: "0.5px solid #ddd" }} />
+      </Box>
 
-        {/* Copyright */}
-        <Box textAlign="center" mt={2}>
-          <Typography variant="caption" sx={{ fontFamily: "Montserrat, sans-serif", color: "#777" }}>
-            &copy; {new Date().getFullYear()} KRS Hollow Blocks. All rights reserved.
-          </Typography>
+      {/* Copyright & Social Icons */}
+      <Box display="flex" justifyContent="space-between" alignItems="center" px={3}>
+      <p style={{ textAlign: "center", fontSize: "14px", color: "white", marginTop: "20px" }}>
+          Designed & Developed by <strong>Keerthana Duraisamy</strong> © 2025
+        </p>
+        <Box display="flex" gap={2}>
+          <Link href="#" color="inherit"><Facebook /></Link>
+          <Link href="#" color="inherit"><Twitter /></Link>
+          <Link href="#" color="inherit"><YouTube /></Link>
+          <Link href="#" color="inherit"><LinkedIn /></Link>
         </Box>
-      </Container>
+      </Box>
     </Box>
   );
 };
