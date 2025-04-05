@@ -36,11 +36,18 @@ const Navbar = () => {
     <AppBar position="sticky" sx={{ backgroundColor: "#0D0D1F", padding: "10px 0" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         {/* Brand Name with Logo Effect */}
-        <img
+        <Box
+  component="img"
   src={krslogo}
   alt="KRS HOLLOW BLOCKS"
-  style={{ height: "90px", width: "auto" }} // You can adjust height as needed
+  sx={{
+    width: { xs: 120, sm: 150, md: 130 }, // Adjust width for different screen sizes
+    height: "auto",
+    objectFit: "contain",
+  }}
 />
+
+
 
  
         {/* Desktop Navigation */}
