@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Link, Grid } from "@mui/material";
+import { Box, Typography, Link, Grid, TextField, Button } from "@mui/material";
 import { Facebook, Twitter, YouTube, LinkedIn, Phone, Email } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
 
@@ -7,86 +7,93 @@ const navItems = ["Home", "About", "Products", "Gallery", "Testimonials", "Conta
 
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: "#0D0D1F", py: 3, borderTop: "1px solid #ddd", color: "white" }}>
-      {/* Logo */}
-      <Box textAlign="center" mb={2}>
-        <Typography
-          variant="h6"
-          sx={{ fontWeight: "bold", fontSize: { xs: "1.2rem", md: "1.4rem" }, fontFamily: "Playfair Display, serif" }}
-        >
-          KRS Hollow Blocks
-        </Typography>
-      </Box>
+    <Box sx={{ backgroundColor: "white", py: 5, color: "#3A3A57" }}>
+      <Grid container spacing={4} justifyContent="center" sx={{ px: 3 }}>
+        {/* Company Info */}
+        <Grid item xs={12} sm={4} textAlign={{ xs: "center", sm: "left" }}>
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: "bold", fontFamily: "Playfair Display, serif" }}
+          >
+            KRS Hollow Blocks
+          </Typography>
+          <Typography variant="body2" sx={{ mt: 1 }}>
+            A108 Adam Street, New York, NY 535022
+          </Typography>
+          <Typography variant="body2" sx={{ mt: 1 }}>
+            <Phone fontSize="small" sx={{ mr: 1 }} />
+            +91 97900 86894 | +91 99437 17808
+          </Typography>
+          <Typography variant="body2" sx={{ mt: 1 }}>
+            <Email fontSize="small" sx={{ mr: 1 }} />
+            info@krshollowblocks.com
+          </Typography>
+        </Grid>
 
-      {/* Navigation Links */}
-      <Grid container justifyContent="center" spacing={2} sx={{ textAlign: "center", mb: 2 }}>
-        {navItems.map((item) => (
-          <Grid item key={item}>
-            <NavLink
-              to={`/${item.toLowerCase()}`}
-              style={{
-                textDecoration: "none",
-                color: "white",
-                fontSize: "1rem",
-                fontFamily: "Montserrat, sans-serif",
-                position: "relative",
-                padding: "5px 10px",
-                display: "inline-block",
-              }}
-            >
-              {item}
-            </NavLink>
-          </Grid>
-        ))}
+        {/* Useful Links */}
+        <Grid item xs={12} sm={2} textAlign={{ xs: "center", sm: "left" }}>
+          <Typography variant="h6" sx={{ fontSize: "1rem", fontWeight: "bold" }}>
+            Useful Links
+          </Typography>
+          {navItems.map((item) => (
+            <Typography key={item} variant="body2" sx={{ mt: 1 }}>
+              <NavLink to={`/${item.toLowerCase()}`} style={{ textDecoration: "none", color: "#3A3A57" }}>
+                {item}
+              </NavLink>
+            </Typography>
+          ))}
+        </Grid>
+
+        {/* Our Services */}
+        <Grid item xs={12} sm={3} textAlign={{ xs: "center", sm: "left" }}>
+          <Typography variant="h6" sx={{ fontSize: "1rem", fontWeight: "bold" }}>
+            Our Services
+          </Typography>
+          {["Web Design", "Web Development", "Product Management", "Marketing", "Graphic Design"].map((service) => (
+            <Typography key={service} variant="body2" sx={{ mt: 1 }}>
+              {service}
+            </Typography>
+          ))}
+        </Grid>
+
+        {/* Newsletter Subscription */}
+        <Grid item xs={12} sm={3} textAlign={{ xs: "center", sm: "left" }}>
+          <Typography variant="h6" sx={{ fontSize: "1rem", fontWeight: "bold" }}>
+            Our Newsletter
+          </Typography>
+          <Typography variant="body2" sx={{ mt: 1 }}>
+            Subscribe to receive updates about our products and services.
+          </Typography>
+          <Box display="flex" sx={{ mt: 2 }}>
+            <TextField variant="outlined" size="small" placeholder="Your email" sx={{ flexGrow: 1, bgcolor: "white", borderRadius: "5px" }} />
+            <Button variant="contained" color="error" sx={{ ml: 1, px: 3 }}>
+              Subscribe
+            </Button>
+          </Box>
+        </Grid>
       </Grid>
 
       {/* Separator */}
-      <Box mt={2} mb={2} textAlign="center">
-        <hr style={{ width: "80%", margin: "auto", border: "0.5px solid #ddd" }} />
+      <Box mt={4} textAlign="center">
+        <hr style={{ width: "80%", margin: "auto", border: "0.5px solid #444" }} />
       </Box>
 
-      {/* Contact Info */}
-      <Grid container justifyContent="center" spacing={3} sx={{ textAlign: "center", mb: 2 }}>
-        <Grid item xs={12} sm={6} md={4}>
-          <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
-            <Phone fontSize="small" />
-            <Typography variant="body2">+91 97900 86894 | +91 99437 17808</Typography>
-          </Box>
+      {/* Footer Bottom - Social Icons & Copyright */}
+      <Grid container justifyContent="center" alignItems="center" gap="3" sx={{ px: { xs: 2, md: 4 }, mt: 3 }}>
+        <Grid item xs={12} md={6} textAlign={{ xs: "center", md: "left" }}>
+          <Typography variant="body2" sx={{ fontSize: "14px" }}>
+            Designed & Developed by <strong>Keerthana Duraisamy</strong> © 2025
+          </Typography>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
-            <Email fontSize="small" />
-            <Typography variant="body2">info@krshollowblocks.com</Typography>
+        <Grid item xs={12} md={6} textAlign="center">
+          <Box display="flex" justifyContent="center" gap={2}>
+            <Link href="#" color="inherit"><Facebook /></Link>
+            <Link href="#" color="inherit"><Twitter /></Link>
+            <Link href="#" color="inherit"><YouTube /></Link>
+            <Link href="#" color="inherit"><LinkedIn /></Link>
           </Box>
         </Grid>
       </Grid>
-
-      {/* Copyright & Social Icons */}
-      <Grid container justifyContent="center" alignItems="center" sx={{ px: { xs: 2, md: 4 } }}>
-  <Grid item xs={12} md={6} textAlign={{ xs: "center", md: "left" }}>
-    <Typography variant="body2" sx={{ fontSize: "14px", mt: 2 }}>
-      Designed & Developed by <strong>Keerthana Duraisamy</strong> © 2025
-    </Typography>
-  </Grid>
-  <Grid item xs={12} md={6}>
-    <Box 
-      display="flex" 
-      justifyContent="center" // Force center alignment
-      sx={{
-        width: "100%", // Ensure full width
-        mt: { xs: 2, md: 0 },
-      }}
-    >
-      <Box display="flex" gap={2}>
-        <Link href="#" color="inherit"><Facebook /></Link>
-        <Link href="#" color="inherit"><Twitter /></Link>
-        <Link href="#" color="inherit"><YouTube /></Link>
-        <Link href="#" color="inherit"><LinkedIn /></Link>
-      </Box>
-    </Box>
-  </Grid>
-</Grid>
-
     </Box>
   );
 };

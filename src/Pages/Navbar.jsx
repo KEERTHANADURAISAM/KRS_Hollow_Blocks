@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom"; // Import Link for routing
+import krslogo from '/KRS-removebg-preview.png'
 
 const navItems = ["Home", "About", "Products", "Gallery", "Testimonials", "Contact"];
 const products = ["Hollow Blocks", "Molded Rings", "Molded Pillars", "Paver Blocks"];
@@ -35,19 +36,13 @@ const Navbar = () => {
     <AppBar position="sticky" sx={{ backgroundColor: "#0D0D1F", padding: "10px 0" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         {/* Brand Name with Logo Effect */}
-        <Typography
-          variant="h6"
-          sx={{
-            color: "#fff",
-            fontWeight: "bold",
-            fontFamily: "'Playfair Display', serif",
-            fontSize: "1.8rem",
-            letterSpacing: "2px",
-          }}
-        >
-          KRS Hollow Blocks
-        </Typography>
+        <img
+  src={krslogo}
+  alt="KRS HOLLOW BLOCKS"
+  style={{ height: "90px", width: "auto" }} // You can adjust height as needed
+/>
 
+ 
         {/* Desktop Navigation */}
         <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3, fontFamily: "Montserrat, sans-serif" }}>
           {navItems.map((item) => (
