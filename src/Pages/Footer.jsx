@@ -26,7 +26,7 @@ const Footer = () => {
           </Typography>
           <Typography variant="body2" sx={{ mt: 1 }}>
             <Email fontSize="small" sx={{ mr: 1 }} />
-            info@krshollowblocks.com
+            sivanesan1992@gmail.com
           </Typography>
         </Grid>
 
@@ -85,14 +85,7 @@ const Footer = () => {
             Designed & Developed by <strong>Keerthana Duraisamy</strong> © 2025
           </Typography>
         </Grid>
-        <Grid item xs={12} md={6} textAlign="center">
-          <Box display="flex" justifyContent="center" gap={2}>
-            <Link href="#" color="inherit"><Facebook /></Link>
-            <Link href="#" color="inherit"><Twitter /></Link>
-            <Link href="#" color="inherit"><YouTube /></Link>
-            <Link href="#" color="inherit"><LinkedIn /></Link>
-          </Box>
-        </Grid>
+       
       </Grid>
     </Box>
   );

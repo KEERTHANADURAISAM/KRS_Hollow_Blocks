@@ -33,25 +33,22 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "#0D0D1F", padding: "10px 0" }}>
+
+        <AppBar position="sticky" sx={{ backgroundColor: "", color: "white", height: "100px", padding: "5px" }}>
+    
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         {/* Brand Name with Logo Effect */}
-        <Box
-  component="img"
-  src={krslogo}
-  alt="KRS HOLLOW BLOCKS"
-  sx={{
-    width: { xs: 120, sm: 150, md: 130 }, // Adjust width for different screen sizes
-    height: "auto",
-    objectFit: "contain",
-  }}
-/>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+            <img src={krslogo}
+  alt="KRS HOLLOW BLOCKS" style={{ height: "150px", width: "auto" }} />
+          </Box>
+      
 
 
 
  
         {/* Desktop Navigation */}
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3, fontFamily: "Montserrat, sans-serif" }}>
+        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3, fontFamily:  "Poppins, sans-serif",fontWeight:500,fontStyle:"bold" }}>
           {navItems.map((item) => (
             item === "Products" ? (
               <Button
